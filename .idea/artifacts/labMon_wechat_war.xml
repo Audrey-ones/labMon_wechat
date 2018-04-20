@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="labMon_wechat:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="freezesys.war">
+      <element id="artifact" artifact-name="labMon_wechat:war exploded" />
+    </root>
+  </artifact>
+</component>
