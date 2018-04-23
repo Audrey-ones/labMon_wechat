@@ -3,6 +3,7 @@ package com.sery.labmon.web;
 
 import com.sery.labmon.model.Patient;
 import com.sery.labmon.service.PatientService;
+import com.sery.labmon.service.WechatTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,9 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
+    @Autowired
+    private WechatTest we;
+
     /**
      * 查找所有的病人信息
      * @return
@@ -22,6 +26,16 @@ public class PatientController {
     public @ResponseBody
     List<Patient> getPatientList(){
         List<Patient> patientList = patientService.getPatientList();
+        return patientList;
+    }
+
+    /**
+     * 查找所有的病人信息
+     * @return
+     */
+    @RequestMapping(value = "test",method = RequestMethod.GET)
+    public String getTestInfo(){
+        String patientList = we.run();
         return patientList;
     }
 

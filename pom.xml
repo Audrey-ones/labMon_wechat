@@ -206,11 +206,11 @@
     </dependency>
 
     <!-- Mysql数据库驱动包 -->
-    <dependency>
+    <!--<dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.13</version>
-    </dependency>
+    </dependency>-->
 
     <!-- druid数据库连接池包 -->
     <dependency>
