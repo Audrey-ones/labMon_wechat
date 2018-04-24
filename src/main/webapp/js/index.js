@@ -60,20 +60,17 @@ layui.config({
 		}
 	}
 
+    //底部时间设置
+    setInterval(function () {
+        $(".foot_time").html(new Date().toLocaleTimeString());//getNowFormatDate()
+    }, 1000);
+
+
+
 })
+
 
 //打开新窗口
 function addTab(_this){
 	tab.tabAdd(_this);
-}
-
-//详情显示公众号弹框
-function donation(){
-	layer.tab({
-		area : ['320px', '380px'],
-		tab : [{
-			title : "关注微信公众号",
-			content : "<div style='padding:30px;overflow:hidden;background:#d2d0d0;'><img src='images/njserywx.jpg'></div>"
-		}]
-	})
 }

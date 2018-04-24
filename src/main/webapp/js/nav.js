@@ -6,6 +6,6 @@ var navs = [{
 },{
 	"title" : "房间管理",
 	"icon" : "icon-text",
-	"href" : "page/strawInfo/strawsList.html",
+	"href" : "page/patient.html",
 	"spread" : false
 }]
