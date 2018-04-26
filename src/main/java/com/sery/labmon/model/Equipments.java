@@ -6,15 +6,15 @@ package com.sery.labmon.model;
 public class Equipments {
     private Integer equipmentId;
     private String name;
-    private Integer dataTenplateId;
+    private Integer dataTemplateId;
     private String description;
     private String equipmentType;
-    private String roomId;
+    private Integer roomId;
 
-    public Equipments(Integer equipmentId, String name, Integer dataTenplateId, String description, String equipmentType, String roomId) {
+    public Equipments(Integer equipmentId, String name, Integer dataTemplateId, String description, String equipmentType, Integer roomId) {
         this.equipmentId = equipmentId;
         this.name = name;
-        this.dataTenplateId = dataTenplateId;
+        this.dataTemplateId = dataTemplateId;
         this.description = description;
         this.equipmentType = equipmentType;
         this.roomId = roomId;
@@ -39,12 +39,12 @@ public class Equipments {
         this.name = name;
     }
 
-    public Integer getDataTenplateId() {
-        return dataTenplateId;
+    public Integer getDataTemplateId() {
+        return dataTemplateId;
     }
 
-    public void setDataTenplateId(Integer dataTenplateId) {
-        this.dataTenplateId = dataTenplateId;
+    public void setDataTemplateId(Integer dataTenplateId) {
+        this.dataTemplateId = dataTenplateId;
     }
 
     public String getDescription() {
@@ -63,11 +63,11 @@ public class Equipments {
         this.equipmentType = equipmentType;
     }
 
-    public String getRoomId() {
+    public Integer getRoomId() {
         return roomId;
     }
 
-    public void setRoomId(String roomId) {
+    public void setRoomId(Integer roomId) {
         this.roomId = roomId;
     }
 
@@ -76,7 +76,7 @@ public class Equipments {
         return "Equipments{" +
                 "equipmentId=" + equipmentId +
                 ", name='" + name + '\'' +
-                ", dataTenplateId=" + dataTenplateId +
+                ", dataTenplateId=" + dataTemplateId +
                 ", description='" + description + '\'' +
                 ", equipmentType='" + equipmentType + '\'' +
                 ", roomId='" + roomId + '\'' +

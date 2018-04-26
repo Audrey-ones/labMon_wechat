@@ -10,7 +10,6 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="../css/font_eolqem241z66flxr.css" media="all" />
 	<link rel="stylesheet" href="../css/main.css" media="all" />
 	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" media="all">
 
@@ -42,40 +41,35 @@
 			color: #1AA094;
 			/*background-color: black;*/
 		}
+		.equipment{
+			clear: both;
+			margin-top: 10px;
+			background-color: #1AA094;
+			padding: 10px;border-radius: 4px;
+			color: #ffffff;font-size: 16px;
+			margin-bottom: 10px;
+		}
+
 	</style>
 </head>
-<body class="childrenBody">
+<body class="childrenBody" style="overflow-x:hidden">
 	<label style="float: left;width: 25%;margin-top: 15px;color: #1AA094">选择房间：</label>
-	<select style="float: right;width: 75%;margin-bottom: 20px">
-		<option value="未使用">第一个房间</option>
-		<option value="已使用">第二个房间</option>
-		<option value="已使用">第三个房间</option>
-		<option value="已使用">第四个房间</option>
-		<option value="已使用">第五个房间</option>
-		<option value="已使用">第六个房间</option>
+	<select id="select_room" style="float: right;width: 75%;margin-bottom: 20px">
+		<!--<option value="0">第一个房间</option>
+		<option value="1">第二个房间</option>
+		<option value="2">第三个房间</option>
+		<option value="3">第四个房间</option>
+		<option value="4">第五个房间</option>
+		<option value="5">第六个房间</option>-->
 	</select>
 
-	<div style="clear: both;margin-top: 10px;background-color: #1AA094;padding: 10px;border-radius: 4px;color: #ffffff;font-size: 16px">
-		<div>
-			<span>名称：</span>
-			<span>Ec6培养箱</span>
-		</div>
-		<div>
-			<span>参数：</span>
-			<span>Ec6培养箱</span>
-		</div>
-	</div>
-	<div style="clear: both;margin-top: 10px;background-color: #1AA094;padding: 10px;border-radius: 4px;color: #ffffff;font-size: 16px">
-		<div>
-			<span>名称：</span>
-			<span>Ec6培养箱</span>
-		</div>
-		<div>
-			<span>参数：</span>
-			<span>Ec6培养箱</span>
-		</div>
+	<div class="equipment_tab">
 	</div>
 
+	<div id="nothing" style="text-align: center;display: none">
+		<i class="fa fa-hand-o-up" style="line-height:20rem; font-size:10rem; color: #393D50;"></i>
+		<p style="font-size: 14px; font-weight: 300; color: #999;">这个房间还没有设备哦~</p>
+	</div>
 
 	<script type="text/javascript" src="../layui/layui.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
