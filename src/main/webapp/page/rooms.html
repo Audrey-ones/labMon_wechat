@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房间管理</title>
+    <style type="text/css">
+        .room{
+            /*background-color: #9acd32;*/
+            background-color: #1AA094;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 15px 5px 5px 5px;
+            text-align: center;
+            width: 40%;
+            float: left;
+        }
+        .room_name{
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .equipment_info{
+            color: #ffffff;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="room_tab">
+    <!--<label class="room_name">胚胎实验室</label>
+    <div class="equipment_info">
+        <span style="font-size: 12px">设备数量：</span>
+        <span>8个</span>
+    </div>-->
+</div>
+<!--<div class="room_tab">
+    <label class="room_name">胚胎实验室</label>
+    <div class="equipment_info">
+        <span style="font-size: 12px">设备数量：</span>
+        <span>8个</span>
+    </div>
+</div>-->
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script>
+    $(function(){
+        $.ajax({
+            url : "/rooms/equipments",
+            type : "get",
+            dataType : "json",
+            success : function (data) {
+                console.log(data);
+                var dom = "";
+                for (var i=0; i<data.length; i++){
+                    dom += '<div class="room">'
+                         + '<label class="room_name">'+data[i].room.name+'</label>'
+                         + '<div class="equipment_info">'
+                         + '<span style="font-size: 12px">设备数量：</span>'
+                         + '<span>'+data[i].equipments.length+'个</span>'
+                         + '</div>'
+                         + '</div>';
+                }
+                $(".room_tab").html(dom);
+            }
+        })
+
+    });
+</script>
+</body>
+</html>

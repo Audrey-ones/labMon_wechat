@@ -32,4 +32,10 @@ public class MainController {
         List<Equipments> equipmentsList = equipmentService.getEquipmentByRoomId(roomId);
         return equipmentsList;
     }
+
+    @RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
+    public @ResponseBody List getEquipmentsByRooms(){
+        List list = roomsService.getEquipmentsByRooms();
+        return list;
+    }
 }

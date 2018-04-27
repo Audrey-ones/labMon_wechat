@@ -15,4 +15,10 @@ public interface RoomsService {
      * @return
      */
     List<Rooms> getAllRooms();
+
+    /**
+     * 获取所有房间的所有设备的数量
+     * @return
+     */
+    List getEquipmentsByRooms();
 }

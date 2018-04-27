@@ -24,6 +24,9 @@ layui.config({
         $("#select_room").html(dataHtml);
     });
 
+	//返回顶部
+    returnTop();
+
 	//当select改变时，获取select的值并发送一次请求
 	$("#select_room").change(function () {
 	    console.log($("#select_room option:checked").text())
@@ -47,12 +50,12 @@ layui.config({
                 var dataHtml = "";
                 for (var i=0; i<data.length; i++){
                     dataHtml += '<div class="equipment"><div>'
-                        + '<span>设备名称：</span>'
+                        + '<span class="label_name">设备名称：</span>'
                         + '<span>'+data[i].name+'</span>'
                         + '</div>'
-                        + '<div>'
-                        + '<span>参数：</span>'
-                        + '<span>Ec6培养箱</span>'
+                        + '<div style="margin-top: 7px">'
+                        + '<span class="label_name">参数：</span>'
+                        + '<span>温度：45℃；氧气浓度：2%；二氧化碳浓度：1%</span>'
                         + '</div></div>';
                 }
                 $(".equipment_tab").html(dataHtml);
@@ -60,5 +63,28 @@ layui.config({
             }
         })
     }
+
+    //返回顶部方法
+    function returnTop() {
+        $("#go_top").hide();
+        $(function () {
+            //检测屏幕高度
+            var height=$(window).height();
+            //scroll() 方法为滚动事件
+            $(window).scroll(function(){
+                if ($(window).scrollTop()>height){
+                    $("#go_top").fadeIn(500);
+                }else{
+                    $("#go_top").fadeOut(500);
+                }
+            });
+            $("#go_top").click(function(){
+                $('body,html').animate({scrollTop:0},100);
+                return false;
+            });
+        });
+    }
+
+
 
 })

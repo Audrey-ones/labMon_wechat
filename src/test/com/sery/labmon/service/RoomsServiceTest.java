@@ -26,4 +26,10 @@ public class RoomsServiceTest {
         List<Rooms> roomsList = roomsService.getAllRooms();
         System.out.println(roomsList);
     }
+
+    @Test
+    public void getEquipmentsByRooms() {
+        List list = roomsService.getEquipmentsByRooms();
+        System.out.println(list);
+    }
 }

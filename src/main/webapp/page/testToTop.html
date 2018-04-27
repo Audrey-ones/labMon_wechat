@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jquery实现当页面滚动超过一屏时显示返回顶部按钮</title>
+    <style>
+        #go_top{
+            position:fixed;
+            left: 75%;
+            bottom:50px;
+        }
+    </style>
+</head>
+<body>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>1<br/>
+<div id="go_top">
+    <!--<i class="fa fa-angle-up" aria-hidden="true"></i>-->
+    <img src="../images/xiaoxin.jpg" alt="返回顶部">
+    <div style="text-align: center">返回顶部</div>
+</div>
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#go_top").hide();
+        $(function () {
+            //检测屏幕高度
+            var height=$(window).height();
+            //scroll() 方法为滚动事件
+            $(window).scroll(function(){
+                if ($(window).scrollTop()>height){
+                    $("#go_top").fadeIn(500);
+                }else{
+                    $("#go_top").fadeOut(500);
+                }
+            });
+            $("#go_top").click(function(){
+                $('body,html').animate({scrollTop:0},100);
+                return false;
+            });
+        });
+    });
+</script>
+</body>
+</html>
