@@ -22,13 +22,17 @@
 			/*高宽分别对应横竖滚动条的尺寸*/
 			/*width: 10px;
 			height: 1px;*/
-			width: 0px;
-			height: 0px;
+			/*width: 0px;
+			height: 0px;*/
+			display: none;
+			overflow-y: scroll;
+			/*解决ios上滑动不流畅*/
+			-webkit-overflow-scrolling: touch;
 		}
 		body::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
 			border-radius: 10px;
 			-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-			background: #ffffff;
+			background: #ff5722;
 		}
 		body::-webkit-scrollbar-track {/*滚动条里面轨道*/
 			-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
@@ -86,7 +90,7 @@
 	</style>
 </head>
 <body class="childrenBody">
-	<label style="float: left;width: 25%;margin-top: 15px;color: #1AA094">选择房间：</label>
+	<label style="float: left;width: 25%;margin-top: 15px;color: #1AA094">选择房间ma：</label>
 	<select id="select_room" style="float: right;width: 75%;margin-bottom: 20px">
 		<!--<option value="0">第一个房间</option>
 		<option value="1">第二个房间</option>

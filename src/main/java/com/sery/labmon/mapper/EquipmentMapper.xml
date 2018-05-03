@@ -16,4 +16,12 @@
         WHERE
         RoomID = #{roomsId,jdbcType=INTEGER}
     </select>
+
+    <select id="getEquipmentById" resultMap="equipmentInfo" parameterType="java.lang.Integer">
+        SELECT *
+        FROM Equipments
+        WHERE
+        EquipmentID = #{equipmentId,jdbcType=INTEGER}
+    </select>
+
 </mapper>

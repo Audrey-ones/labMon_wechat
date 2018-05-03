@@ -1,54 +1,41 @@
 package com.sery.labmon.model;
 
-import java.util.Date;
-
 /**
  * Created by LuDan on 2018/4/23 10:18
  */
 public class EquipmentDatas {
-    private Integer equipmentId;
-    private Date timeStamp;
-    private String Datas;
+    private Long timeStamp;
+    private String data;
 
-    public EquipmentDatas(Integer equipmentId, Date timeStamp, String datas) {
-        this.equipmentId = equipmentId;
+    public EquipmentDatas(Long timeStamp, String data) {
         this.timeStamp = timeStamp;
-        Datas = datas;
+        this.data = data;
     }
 
     public EquipmentDatas() {
     }
 
-    public Integer getEquipmentId() {
-        return equipmentId;
-    }
-
-    public void setEquipmentId(Integer equipmentId) {
-        this.equipmentId = equipmentId;
-    }
-
-    public Date getTimeStamp() {
+    public Long getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Date timeStamp) {
+    public void setTimeStamp(Long timeStamp) {
         this.timeStamp = timeStamp;
     }
 
-    public String getDatas() {
-        return Datas;
+    public String getData() {
+        return data;
     }
 
-    public void setDatas(String datas) {
-        Datas = datas;
+    public void setData(String data) {
+        this.data = data;
     }
 
     @Override
     public String toString() {
         return "EquipmentDatas{" +
-                "equipmentId=" + equipmentId +
-                ", timeStamp=" + timeStamp +
-                ", Datas='" + Datas + '\'' +
+                "timeStamp=" + timeStamp +
+                ", data='" + data + '\'' +
                 '}';
     }
 }

@@ -15,4 +15,11 @@ public interface EquipmentMapper {
      * @return
      */
     List<Equipments> getEquipmentByRoomId(int roomId);
+
+    /**
+     * 根据设备ID获取该设备信息
+     * @param equipmentId
+     * @return
+     */
+    Equipments getEquipmentById(int equipmentId);
 }
