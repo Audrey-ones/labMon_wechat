@@ -17,6 +17,11 @@ public class EquipmentServiceImpl implements EquipmentService {
     @Autowired
     private EquipmentMapper equipmentMapper;
 
+    /*@Override
+    public List<Equipments> getEquipmentByRoomId(int roomId) {
+        List<Equipments> equipmentsList = equipmentMapper.getEquipmentByRoomId(roomId);
+        return equipmentsList;
+    }*/
     @Override
     public List<Equipments> getEquipmentByRoomId(int roomId) {
         List<Equipments> equipmentsList = equipmentMapper.getEquipmentByRoomId(roomId);

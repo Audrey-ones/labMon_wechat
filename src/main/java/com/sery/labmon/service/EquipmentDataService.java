@@ -25,5 +25,5 @@ public interface EquipmentDataService {
      * 获取最后一条记录
      * @return
      */
-    Map getTheLastEquipmentData();
+    List getTheLastEquipmentData();
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTO Mapper 3.0"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sery.labmon.dao.DataTemplateMapper">
+    <resultMap id="dataTemplateInfo" type="com.sery.labmon.model.DataTemplates">
+        <id column="DataTemplateID" property="dataTemplateId" jdbcType="INTEGER"></id>
+        <result column="Name" property="name" jdbcType="VARCHAR"></result>
+        <result column="Description" property="description" jdbcType="VARCHAR"></result>
+        <result column="Template" property="template" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <select id="getDataTemplateById" resultMap="dataTemplateInfo">
+        SELECT *
+        FROM DataTemplates
+        WHERE
+        DataTemplateID = #{dataTemplateId,jdbcType=INTEGER}
+    </select>
+
+</mapper>

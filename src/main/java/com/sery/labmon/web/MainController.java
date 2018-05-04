@@ -2,6 +2,7 @@ package com.sery.labmon.web;
 
 import com.sery.labmon.model.Equipments;
 import com.sery.labmon.model.Rooms;
+import com.sery.labmon.service.EquipmentDataService;
 import com.sery.labmon.service.EquipmentService;
 import com.sery.labmon.service.RoomsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class MainController {
     @Autowired
     private EquipmentService equipmentService;
 
+    @Autowired
+    private EquipmentDataService equipmentDataService;
+
     @RequestMapping(value = "rooms",method = RequestMethod.GET)
     public @ResponseBody
     List<Rooms> getAllRooms(){
@@ -33,9 +37,15 @@ public class MainController {
         return equipmentsList;
     }
 
-    @RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
+    /*@RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
     public @ResponseBody List getEquipmentsByRooms(){
         List list = roomsService.getEquipmentsByRooms();
+        return list;
+    }*/
+
+    @RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
+    public @ResponseBody List getEquipmentsByRooms(){
+        List list = equipmentDataService.getTheLastEquipmentData();
         return list;
     }
 }

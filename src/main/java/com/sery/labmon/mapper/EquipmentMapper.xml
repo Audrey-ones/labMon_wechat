@@ -14,6 +14,7 @@
         SELECT *
         FROM Equipments
         WHERE
+        IsUsed = 1 AND
         RoomID = #{roomsId,jdbcType=INTEGER}
     </select>
 
