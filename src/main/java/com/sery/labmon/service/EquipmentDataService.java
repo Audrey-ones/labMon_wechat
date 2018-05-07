@@ -1,6 +1,7 @@
 package com.sery.labmon.service;
 
 import com.sery.labmon.model.EquipmentDatas;
+import com.sery.labmon.model.JsonData;
 
 import java.util.List;
 import java.util.Map;
@@ -25,5 +26,5 @@ public interface EquipmentDataService {
      * 获取最后一条记录
      * @return
      */
-    List getTheLastEquipmentData();
+    JsonData getTheLastEquipmentData();
 }

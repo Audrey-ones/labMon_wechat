@@ -2,6 +2,8 @@ package com.sery.labmon.service.impl;
 
 import com.sery.labmon.dao.EquipmentMapper;
 import com.sery.labmon.model.Equipments;
+import com.sery.labmon.model.JsonData;
+import com.sery.labmon.service.EquipmentDataService;
 import com.sery.labmon.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class EquipmentServiceImpl implements EquipmentService {
     @Autowired
     private EquipmentMapper equipmentMapper;
 
+    @Autowired
+    private EquipmentDataService equipmentDataService;
+
     /*@Override
     public List<Equipments> getEquipmentByRoomId(int roomId) {
         List<Equipments> equipmentsList = equipmentMapper.getEquipmentByRoomId(roomId);
@@ -25,6 +30,10 @@ public class EquipmentServiceImpl implements EquipmentService {
     @Override
     public List<Equipments> getEquipmentByRoomId(int roomId) {
         List<Equipments> equipmentsList = equipmentMapper.getEquipmentByRoomId(roomId);
+        JsonData jsonData = equipmentDataService.getTheLastEquipmentData();
+
+
+
         return equipmentsList;
     }
 }

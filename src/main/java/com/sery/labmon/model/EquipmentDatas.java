@@ -33,9 +33,9 @@ public class EquipmentDatas {
 
     @Override
     public String toString() {
-        return "EquipmentDatas{" +
-                "timeStamp=" + timeStamp +
-                ", data='" + data + '\'' +
-                '}';
+        return "{" +
+                "'timeStamp':" + timeStamp +
+                ", 'data':" + data +
+                "}";
     }
 }

@@ -1,12 +1,11 @@
 package com.sery.labmon.service.impl;
 
+import com.google.gson.Gson;
 import com.sery.labmon.dao.DataTemplateMapper;
 import com.sery.labmon.dao.EquipmentDataMapper;
 import com.sery.labmon.dao.EquipmentMapper;
-import com.sery.labmon.model.DataTemplates;
-import com.sery.labmon.model.EquipmentDatas;
+import com.sery.labmon.model.*;
 
-import com.sery.labmon.model.Equipments;
 import com.sery.labmon.service.EquipmentDataService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -40,8 +39,13 @@ public class EuqipmentDataServiceImpl implements EquipmentDataService {
     }
 
     @Override
-    public List getTheLastEquipmentData() {
-        EquipmentDatas equipmentData = equipmentDataMapper.getTheLastEquipmentData();
+    public JsonData getTheLastEquipmentData() {
+        String equipmentData = equipmentDataMapper.getTheLastEquipmentData().toString();
+        //使用Gson把字符串转换成json对象
+        Gson gson = new Gson();
+        JsonData jsonData = gson.fromJson(equipmentData,JsonData.class);
+        return jsonData;
+
         /*Map map = new HashMap();
         map.put("timestamp",equipmentData.getTimeStamp());
         JSONArray json = JSONArray.fromObject(equipmentData.getData());
@@ -54,7 +58,7 @@ public class EuqipmentDataServiceImpl implements EquipmentDataService {
         }
         map.put("data",json);
         return map;*/
-        JSONArray json = JSONArray.fromObject(equipmentData.getData());
+        /*JSONArray json = JSONArray.fromObject(equipmentData.getData());
         List list = new ArrayList();
         if (json.size()>0){
             for (int i=0; i<json.size(); i++){
@@ -81,11 +85,11 @@ public class EuqipmentDataServiceImpl implements EquipmentDataService {
                     map.put("data",result);
                     list.add(map);
                 }
-                /*System.out.println(equipmentId+"数据为："+equData);*/
+                *//*System.out.println(equipmentId+"数据为："+equData);*//*
             }
             System.out.println(list);
         }
 
-        return list;
+        return list;*/
     }
 }

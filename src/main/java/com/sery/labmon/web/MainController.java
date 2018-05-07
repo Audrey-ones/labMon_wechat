@@ -37,15 +37,15 @@ public class MainController {
         return equipmentsList;
     }
 
-    /*@RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
+    @RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
     public @ResponseBody List getEquipmentsByRooms(){
         List list = roomsService.getEquipmentsByRooms();
         return list;
-    }*/
+    }
 
-    @RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
+    /*@RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
     public @ResponseBody List getEquipmentsByRooms(){
         List list = equipmentDataService.getTheLastEquipmentData();
         return list;
-    }
+    }*/
 }
