@@ -59,16 +59,16 @@ public class EquipmentDataServiceTest {
         for (JsonEquipmentData json : jsonData.getData()){
             /*System.out.println(json.getI());
             System.out.println(json.getS());*/
-            System.out.println(json.getI());
-            /*List<Double> values = json.getS();
+            /*System.out.println(json.getI());*/
+            List<Double> values = json.getS();
             if (values == null){
-                *//*System.out.println("skdks");*//*
+                System.out.println("skdks");
             }else {
                 //System.out.println(S.size());
                 for (int i=0;i< values.size();i++){
                     System.out.println(values.get(i));
                 }
-            }*/
+            }
             /*System.out.println(S.size());*/
             /*if (S.toString().equals(null)){
                 for (int i=0;i< S.size();i++){

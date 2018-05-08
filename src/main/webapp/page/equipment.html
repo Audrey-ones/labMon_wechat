@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>编辑液氮罐--液氮罐冷冻管理系统</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" media="all">
+	<style>
+		.equipment{
+			clear: both;
+			/*margin-top: 10px;*/
+			background-color: #1AA094;
+			padding: 10px;border-radius: 4px;
+			color: #ffffff;font-size: 16px;
+			margin-bottom: 15px;
+		}
+		.label_name{
+			font-size: 14px;
+			/*color: #000000;*/
+		}
+		#go_top{
+			position:fixed;
+			left: 87%;
+			bottom:8px;
+			color: #f7b824;
+			font-weight: 700;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body class="childrenBody">
+
+<div class="equipment_tab">
+	<input type="hidden" id="roomId"/>
+</div>
+
+<div id="nothing" style="text-align: center;display: none;padding-top: 8%">
+	<i class="fa fa-smile-o" style="line-height:15rem; font-size:10rem; color: #393D50;"></i>
+	<p style="font-size: 14px; font-weight: 300; color: #999;">这个房间还没有设备哦~</p>
+</div>
+
+<div id="go_top">
+	<i class="fa fa-chevron-circle-up" aria-hidden="true" style="font-size: 45px;"></i>
+	<div style="text-align: center;">TOP</div>
+</div>
+
+<script type="text/javascript" src="../layui/layui.js"></script>
+<script>
+
+    layui.use(['layer', 'form','jquery'], function() {
+        var layer = layui.layer,
+            $ = layui.jquery,
+            form = layui.form();
+
+        getEquipments($("#roomId").val());
+        returnTop();
+        //根据房间ID获取该房间的设备--请求
+        function getEquipments(roomId) {
+            $.ajax({
+                url : "/equipments/"+roomId,
+                type : "get",
+                dataType : "json",
+                success : function (data) {
+                    console.log(data)
+                    //当房间没有设备时，显示提示
+                    if (data.length == 0){
+                        $("#nothing").css("display","block");
+                    }else {
+                        $("#nothing").css("display","none");
+                    }
+                    var dataHtml = "";
+                    for (var i=0; i<data.length; i++){
+                        dataHtml += '<div class="equipment"><div>'
+                            + '<span class="label_name">设备名称：</span>'
+                            + '<span>'+data[i].equipmentName+'</span>'
+                            + '</div>'
+                            + '<div style="margin-top: 7px">'
+                            + '<span class="label_name">参数：</span>'
+                            + '<span>'+data[i].parameter+'</span>'
+                            + '</div>'
+                            + '<div style="margin-top: 7px">'
+                            + '<span class="label_name">采集时间：</span>'
+                            + '<span>'+data[i].dataTime+'</span>'
+                            + '</div></div>';
+                    }
+                    $(".equipment_tab").html(dataHtml);
+
+                }
+            })
+        }
+
+        //返回顶部方法
+        function returnTop() {
+            $("#go_top").hide();
+            $(function () {
+                //检测屏幕高度
+                var height=$(window).height();
+                //scroll() 方法为滚动事件
+                $(window).scroll(function(){
+                    if ($(window).scrollTop()>height){
+                        $("#go_top").fadeIn(500);
+                    }else{
+                        $("#go_top").fadeOut(500);
+                    }
+                });
+                $("#go_top").click(function(){
+                    $('body,html').animate({scrollTop:0},100);
+                    return false;
+                });
+            });
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -40,7 +40,7 @@ layui.config({
             type : "get",
             dataType : "json",
             success : function (data) {
-                console.log(data.length)
+                console.log(data)
                 //当房间没有设备时，显示提示
                 if (data.length == 0){
                     $("#nothing").css("display","block");
@@ -51,11 +51,15 @@ layui.config({
                 for (var i=0; i<data.length; i++){
                     dataHtml += '<div class="equipment"><div>'
                         + '<span class="label_name">设备名称：</span>'
-                        + '<span>'+data[i].name+'</span>'
+                        + '<span>'+data[i].equipmentName+'</span>'
                         + '</div>'
                         + '<div style="margin-top: 7px">'
                         + '<span class="label_name">参数：</span>'
-                        + '<span>温度：45℃；氧气浓度：2%；二氧化碳浓度：1%</span>'
+                        + '<span>'+data[i].parameter+'</span>'
+                        + '</div>'
+                        + '<div style="margin-top: 7px">'
+                        + '<span class="label_name">采集时间：</span>'
+                        + '<span>'+data[i].dataTime+'</span>'
                         + '</div></div>';
                 }
                 $(".equipment_tab").html(dataHtml);

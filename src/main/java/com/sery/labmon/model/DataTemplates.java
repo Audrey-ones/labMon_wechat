@@ -60,4 +60,12 @@ public class DataTemplates {
                 ", template='" + template + '\'' +
                 '}';
     }
+
+
+    public String templateToJsonString() {
+        return "{" +
+                "template:" + template +
+                '}';
+
+    }
 }

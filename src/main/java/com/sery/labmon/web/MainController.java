@@ -1,5 +1,6 @@
 package com.sery.labmon.web;
 
+import com.sery.labmon.model.EquipmentDataDTO;
 import com.sery.labmon.model.Equipments;
 import com.sery.labmon.model.Rooms;
 import com.sery.labmon.service.EquipmentDataService;
@@ -32,8 +33,8 @@ public class MainController {
     }
 
     @RequestMapping(value = "equipments/{roomId}",method = RequestMethod.GET)
-    public @ResponseBody List<Equipments> getEquipmentByRoomId(@PathVariable("roomId") int roomId){
-        List<Equipments> equipmentsList = equipmentService.getEquipmentByRoomId(roomId);
+    public @ResponseBody List<EquipmentDataDTO> getEquipmentByRoomId(@PathVariable("roomId") int roomId){
+        List<EquipmentDataDTO> equipmentsList = equipmentService.getEquipmentByRoomId(roomId);
         return equipmentsList;
     }
 

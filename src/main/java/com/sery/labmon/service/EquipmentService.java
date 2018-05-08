@@ -1,5 +1,6 @@
 package com.sery.labmon.service;
 
+import com.sery.labmon.model.EquipmentDataDTO;
 import com.sery.labmon.model.Equipments;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface EquipmentService {
      * @param roomId
      * @return
      */
-    List<Equipments> getEquipmentByRoomId(int roomId);
+    List<EquipmentDataDTO> getEquipmentByRoomId(int roomId);
 }

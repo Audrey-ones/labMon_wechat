@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>房间管理</title>
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all" />
     <style type="text/css">
         .room{
             /*background-color: #9acd32;*/
@@ -40,30 +41,56 @@
         <span>8个</span>
     </div>
 </div>-->
+<script type="text/javascript" src="../layui/layui.js"></script>
 <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
 <script>
-    $(function(){
+    layui.use(['layer', 'form'], function() {
+        var layer = layui.layer,
+            $ = layui.jquery,
+            form = layui.form();
+
         $.ajax({
             url : "/rooms/equipments",
             type : "get",
             dataType : "json",
             success : function (data) {
                 console.log(data);
-                /*var dom = "";
+                var dom = "";
                 for (var i=0; i<data.length; i++){
-                    dom += '<div class="room">'
-                         + '<label class="room_name">'+data[i].room.name+'</label>'
-                         + '<div class="equipment_info">'
-                         + '<span style="font-size: 12px">设备数量：</span>'
-                         + '<span>'+data[i].equipments.length+'个</span>'
-                         + '</div>'
-                         + '</div>';
+                    dom += '<div class="room" data-id="'+data[i].room.roomId+'">'
+                        + '<label class="room_name">'+data[i].room.name+'</label>'
+                        + '<div class="equipment_info">'
+                        + '<span style="font-size: 12px">设备数量：</span>'
+                        + '<span>'+data[i].equipments.length+'个</span>'
+                        + '</div>'
+                        + '</div>';
                 }
-                $(".room_tab").html(dom);*/
+                $(".room_tab").html(dom);
             }
+        });
+
+        $("body").on("click",".room",function () {
+            /*console.log($(this).attr("data-id"))*/
+            var roomId = $(this).attr("data-id");
+            var index = layui.layer.open({
+                title : "房间设备信息",
+                type : 2,
+                content : "equipment.html",
+                success : function (layero,index) {
+                    //获取子页面
+                    var body = layui.layer.getChildFrame('body', index);
+                    body.find("#roomId").val(roomId);
+                }
+            })
+            //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+            $(window).resize(function () {
+                layui.layer.full(index);
+            })
+            layui.layer.full(index);
         })
 
-    });
+    })
+
 </script>
 </body>
 </html>
