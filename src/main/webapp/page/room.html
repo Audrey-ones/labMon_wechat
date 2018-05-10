@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="room" ng-repeat="room in rooms" ng-click="clickRoom(room.room.roomId)">
+        <label class="room_name">{{room.room.name}}</label>
+        <div class="equipment_info">
+            <span style="font-size: 12px">设备数量：</span>
+            <span>{{room.equipments.length}}个</span>
+        </div>
+    </div>
+
+</div>

@@ -33,11 +33,11 @@ public class PatientController {
      * 查找所有的病人信息
      * @return
      */
-    @RequestMapping(value = "test",method = RequestMethod.GET)
+   /* @RequestMapping(value = "test",method = RequestMethod.GET)
     public String getTestInfo(){
         String patientList = we.run();
         return patientList;
-    }
+    }*/
 
 
 

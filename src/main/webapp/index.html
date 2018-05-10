@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>实验室监控</title>
+    <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -10,55 +9,70 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link  rel="shortcut icon" href="images/emoji.png">
-    <link rel="stylesheet" href="layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="../layui/css/layui.mobile.css" media="all" />
-    <link rel="stylesheet" href="css/main.css" media="all" />
+    <title>实验室监控</title>
+    <link rel="shortcut icon" href="images/emoji.png"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+
+    <script src="components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="components/jquery/dist/jquery.min.js"></script>
+    <script src="components/angular/angular.min.js"></script>
+    <script src="components/angular-cookies/angular-cookies.min.js"></script>
+    <script  src="components/ngstorage/ngStorage.min.js"></script>
+    <script src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <style>
+        .menu{
+            width: 100%;
+            position: fixed;
+            /*height: 30px;*/
+            bottom: 0;
+        }
+        .menu ul{
+            text-align: center;
+            /*width: 100%;*/
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu ul li{
+            display: inline;
+            width: 50%;
+            padding: 20px;
+            /*color: #ffffff;*/
+            border-top: 1px solid #1AA094;
+            color: #1AA094;
+            background-color: #ffffff;
+            border-radius: 4px;
+        }
+
+    </style>
 </head>
-<body class="main_body">
-<div class="layui-layout layui-layout-admin">
-    <!-- 顶部 -->
-    <div class="layui-header header">
-        <div class="layui-main">
-            <a href="#" class="logo"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;实验室监控</a>
-        </div>
-    </div>
-    <!-- 左侧导航 -->
-    <div class="layui-side layui-bg-black">
-        <div class="user-photo">
-            <a class="img" title="my head" ><img src="images/xiaoxin.jpg"></a>
-            <p><i class="fa fa-yelp" aria-hidden="true"></i>&nbsp;&nbsp;</p>
-        </div>
-        <div class="navBar layui-side-scroll"></div>
-    </div>
-    <!-- 右侧内容 -->
-    <div class="layui-body layui-form">
-        <div class="layui-tab marg0" lay-filter="bodyTab">
-            <ul class="layui-tab-title top_tab">
-                <li class="layui-this" lay-id=""><i class="fa fa-home fa-1g"></i> <cite>首页</cite></li>
-            </ul>
-            <div class="layui-tab-content clildFrame">
-                <div class="layui-tab-item layui-show">
-                    <iframe src="page/main.html"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 底部 -->
-    <div class="layui-footer footer">
-        <!--<p>copyright @2018 南京西瑞科技有限公司</p>-->
-        <p class="foot_time"></p>
-    </div>
+<body ng-app="labApp" ng-controller="homePageCtrl">
+<div class="menu">
+    <ul>
+        <li ui-sref="homePage" style="float: left;border-right: 1px solid #1AA094">
+            <i class="fa fa-pagelines" aria-hidden="true"></i>
+            首页
+        </li>
+        <li ui-sref="room" style="float: right;">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            房间
+        </li>
+    </ul>
 </div>
 
-<!-- 移动导航 -->
-<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
-<div class="site-mobile-shade"></div>
+<div ui-view style="padding-top: 30px;padding-bottom: 65px;clear: both;"></div>
 
-<script type="text/javascript" src="layui/layui.js"></script>
-<script type="text/javascript" src="js/nav.js"></script>
-<script type="text/javascript" src="js/leftNav.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<div id="go_top">
+    <i class="fa fa-chevron-circle-up" aria-hidden="true" style="font-size: 70px;"></i>
+    <div style="text-align: center;">TOP</div>
+</div>
+
+<script type="text/javascript" src="js/mainCtrl.js"></script>
+<script type="text/javascript" src="js/homePageCtrl.js"></script>
+<script type="text/javascript" src="js/roomCtrl.js"></script>
+<script type="text/javascript" src="js/equipmentCtrl.js"></script>
 </body>
 </html>

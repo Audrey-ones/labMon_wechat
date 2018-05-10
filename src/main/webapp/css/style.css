@@ -1,0 +1,74 @@
+/*首页样式*/
+select{
+    -webkit-box-sizing: border-box!important;
+    -moz-box-sizing: border-box!important;
+    box-sizing: border-box!important;
+    padding-right: 30px;
+    cursor: pointer;
+    border-color: #D2D2D2!important;
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    height: 38px;
+    line-height: 38px;
+    line-height: 36px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    border-radius: 2px;
+    outline: 0;
+    -webkit-transition: border-color .3s cubic-bezier(.65,.05,.35,.5);
+    transition: border-color .3s cubic-bezier(.65,.05,.35,.5);
+    -webkit-appearance: listbox;/*去掉下拉框的样式*/
+}
+/*select:hover{
+    border-color: #D2D2D2!important;
+}*/
+select option{
+    color: #1AA094;
+    /*background-color: black;*/
+}
+
+/*设备*/
+.equipment{
+    clear: both;
+    /*margin-top: 10px;*/
+    background-color: #1AA094;
+    padding: 10px;border-radius: 4px;
+    color: #ffffff;font-size: 16px;
+    margin-bottom: 15px;
+}
+.label_name{
+    font-size: 14px;
+    /*color: #000000;*/
+}
+
+/*返回顶部*/
+#go_top{
+    position:fixed;
+    left: 80%;
+    bottom:60px;
+    color: #f7b824;
+    font-weight: 700;
+    opacity: 0.5;
+}
+
+/*房间样式*/
+.room{
+    /*background-color: #9acd32;*/
+    background-color: #1AA094;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 0px 5px 15px 8px;
+    text-align: center;
+    width: 45%;
+    float: left;
+}
+.room_name{
+    color: #ffffff;
+    font-size: 20px;
+}
+.equipment_info{
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+}

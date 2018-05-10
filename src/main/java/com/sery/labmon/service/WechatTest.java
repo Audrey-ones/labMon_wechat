@@ -12,13 +12,13 @@ import java.util.Date;
 @Component("testQuartz")
 public class WechatTest {
 
-    public String run(){
+    /*public String run(){
         Date date = new Date();
         String result = date+"每五秒执行一次run方法！";
         System.out.println(result);
         return result;
-    }
-   /*public boolean run() {
+    }*/
+   public boolean run() {
        String msg;
        msg = "您好，实验室液氮罐组的状态出现异常，请及时处理！";
        StringBuffer sb = new StringBuffer();
@@ -30,5 +30,5 @@ public class WechatTest {
        wechatHelper.sendCorpMsg(accessToken, jsonParam);
        System.out.println(accessToken+"+++++++++"+jsonParam);
        return true;
-   }*/
+   }
 }

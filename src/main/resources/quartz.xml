@@ -24,12 +24,12 @@
             <value>0</value>
         </property>
         <property name="repeatInterval">
-            <value>5000</value>
+            <value>6000</value>
         </property>
         <!--设置重复的次数-->
-        <!--<property name="repeatCount">
+        <property name="repeatCount">
             <value>1</value>
-        </property>-->
+        </property>
     </bean>
 
     <bean id="getAccessTokenDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
@@ -57,7 +57,7 @@
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>
-                <!--<ref local="getAccessTokenTrigger"/>-->
+                <ref local="getAccessTokenTrigger"/>
                 <ref local="testQuartzTrigger"/>
             </list>
         </property>
