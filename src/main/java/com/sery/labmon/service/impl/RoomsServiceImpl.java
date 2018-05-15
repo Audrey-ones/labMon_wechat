@@ -46,4 +46,10 @@ public class RoomsServiceImpl implements RoomsService {
         }
         return list;
     }
+
+    @Override
+    public Rooms getRoomByRoomId(int roomId) {
+        Rooms room = roomMapper.getRoomByRoomId(roomId);
+        return room;
+    }
 }

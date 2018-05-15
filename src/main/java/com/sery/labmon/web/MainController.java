@@ -44,6 +44,12 @@ public class MainController {
         return list;
     }
 
+    @RequestMapping(value = "rooms/{roomId}",method = RequestMethod.GET)
+    public @ResponseBody Rooms getRoomByRoomId(@PathVariable("roomId") int roomId){
+        Rooms room = roomsService.getRoomByRoomId(roomId);
+        return room;
+    }
+
     /*@RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
     public @ResponseBody List getEquipmentsByRooms(){
         List list = equipmentDataService.getTheLastEquipmentData();

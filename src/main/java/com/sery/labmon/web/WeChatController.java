@@ -96,10 +96,10 @@ public class WeChatController {
                             String moreInfo = "操作成功，请尽快处理！";
                             msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", moreInfo, msgId, agentId);
                         }
-                        /*if (eventKey.equals("more")) {
+                        if (eventKey.equals("more")) {
                             String moreInfo = "如您在使用过程中有任何的技术问题，请联系西瑞科技技术人员。\n" + "谢谢使用服务！";
                             msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", moreInfo, msgId, agentId);
-                        }*/
+                        }
                     }
                     break;
                 default:

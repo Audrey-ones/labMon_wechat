@@ -21,4 +21,11 @@ public interface RoomsService {
      * @return
      */
     List getEquipmentsByRooms();
+
+    /**
+     * 根据房间ID查找房间信息
+     * @param roomId
+     * @return
+     */
+    Rooms getRoomByRoomId(int roomId);
 }

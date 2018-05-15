@@ -13,4 +13,11 @@ public interface RoomMapper {
      * @return
      */
     List<Rooms> getAllRooms();
+
+    /**
+     * 根据房间ID查找房间信息
+     * @param roomId
+     * @return
+     */
+    Rooms getRoomByRoomId(int roomId);
 }

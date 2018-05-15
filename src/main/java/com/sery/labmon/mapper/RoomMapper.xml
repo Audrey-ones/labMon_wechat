@@ -12,4 +12,11 @@
     <select id="getAllRooms" resultMap="roomInfo">
         SELECT * FROM Rooms
     </select>
+
+    <select id="getRoomByRoomId" parameterType="java.lang.Integer" resultMap="roomInfo">
+        SELECT *
+        FROM Rooms
+        WHERE RoomID = #{roomId,jdbcType=INTEGER}
+    </select>
+
 </mapper>

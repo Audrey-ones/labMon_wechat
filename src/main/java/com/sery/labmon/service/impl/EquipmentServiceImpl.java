@@ -10,8 +10,8 @@ import com.sery.labmon.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -54,10 +54,17 @@ public class EquipmentServiceImpl implements EquipmentService {
                     StringBuffer result = new StringBuffer();
                     if (equValues != null){
                         for (int i=0; i<equValues.size(); i++){
-                            String tempValue = template.getTemplate().get(i).replaceAll("CH","通道");
+                            //让double类型的保留两位小数
+                            BigDecimal bg = new BigDecimal(equValues.get(i));
+                            double equValue = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                            /*DecimalFormat df = new DecimalFormat("#.00");
+                            String equValue = df.format(equValues.get(i));*/
+                            //替换模板的字符(CH替换成通道；小写的冒号替换成大写的冒号)
+                            String tempValue = template.getTemplate().get(i).replaceAll("CH","通道").replaceAll(":","：");
+                            //字符串拼接，在字符串的某个位置插入另一个字符
                             StringBuffer sb = new StringBuffer(tempValue);
-                            int index = tempValue.lastIndexOf(":");
-                            sb.insert(index+1,equValues.get(i));
+                            int index = tempValue.lastIndexOf("：");
+                            sb.insert(index+1,equValue);
                             String str = sb.toString();
                             result.append(str+"；");
                         }
