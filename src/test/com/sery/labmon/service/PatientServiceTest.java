@@ -1,8 +1,6 @@
 package com.sery.labmon.service;
 
-import com.sery.labmon.dao.UserMapper;
 import com.sery.labmon.model.Patient;
-import com.sery.labmon.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +14,6 @@ import java.util.List;
 public class PatientServiceTest {
     @Autowired
     private PatientService patientService;
-
-    @Autowired
-    private UserMapper userMapper;
 
     @Autowired
     WechatTest wechatTest;
@@ -52,19 +47,6 @@ public class PatientServiceTest {
         System.out.println(patientService.getHtmlData());
     }
 
-    @Test
-    public void getAllUser() {
-        List<User> users = userMapper.getAllUser();
-        for (User user : users){
-            if (user.getPassword().equals("123456")){
-                System.out.println(user.getPassword()+"password");
-            }else {
-                System.out.println("密码不正确");
-            }
-
-        }
-
-    }
 
     @Test
     public void getTestInfo() {

@@ -32,4 +32,10 @@ public class RoomsServiceTest {
         List list = roomsService.getEquipmentsByRooms();
         System.out.println(list);
     }
+
+    @Test
+    public void getRoomByRoomId() {
+        Rooms rooms = roomsService.getRoomByRoomId(1);
+        System.out.println(rooms);
+    }
 }

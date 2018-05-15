@@ -72,3 +72,16 @@ select option{
     font-size: 14px;
     margin-top: 10px;
 }
+
+.roomName{
+    background-color: #ffffff;
+    border-bottom: 1px solid #1AA094;
+    color: #1AA094;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top: -30px;
+    position: fixed;
+    width: 100%;
+}
