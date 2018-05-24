@@ -4,7 +4,6 @@
     app.controller("equipmentCtrl",["$scope","equipmentService","$state","$stateParams",function ($scope,equipmentService,$state,$stateParams) {
         var roomId = $stateParams.roomId;
         equipmentService.loadRoom(roomId,function (data) {
-            console.log(data)
             $scope.room = data;
         })
         equipmentService.loadEquipment(roomId,function (data) {
@@ -13,9 +12,12 @@
             }else {
                 $("#nothing").css("display","none");
             }
-            console.log(data);
             $scope.equipments_ = data;
         })
+
+        $scope.reloadPage = function () {
+            $state.reload();
+        }
     }]);
 
     app.service("equipmentService",["$http",function ($http) {

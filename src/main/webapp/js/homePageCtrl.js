@@ -1,11 +1,11 @@
 (function () {
     'use strict';
     var app = angular.module('labApp');
-    app.controller("homePageCtrl",["$scope","homePageService",function ($scope,homePageService) {
+    app.controller("homePageCtrl",["$scope","$state","homePageService",function ($scope,$state,homePageService) {
 
         //获取所有的房间，并添加在select中
         $.get("/rooms",function (data) {
-            console.log(data)
+            /*console.log(data)*/
             var dataHtml = "";
             for (var i=0; i<data.length; i++){
                 if (i == 0){
@@ -22,7 +22,7 @@
 
         //当select改变时，获取select的值并发送一次请求
         $("#select_room").change(function () {
-            console.log($("#select_room option:checked").text())
+            /*console.log($("#select_room option:checked").text())*/
             getEquipments($(this).val())
         })
 
@@ -34,9 +34,14 @@
                     $("#nothing").css("display","none");
                 }
                 $scope.equipments = data;
-                console.log($scope.equipments)
+                /*console.log($scope.equipments)*/
             })
         }
+
+        /*$scope.refreshPage = function () {
+            window.location.reload();
+            $state.go("homePage");
+        }*/
 
 
     }]);

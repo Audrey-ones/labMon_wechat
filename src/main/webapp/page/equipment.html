@@ -1,12 +1,12 @@
-<div class="roomName">{{room.name}}</div>
-<div class="container" style="margin-top: 30px;">
+<div class="roomName" ng-click="reloadPage()">{{room.name}}</div>
+<div class="container" style="margin-top: 40px;">
     <div class="equipment" ng-repeat="equipment in equipments_">
         <div>
             <span class="label_name">设备名称：</span>
             <span>{{equipment.equipmentName}}</span>
         </div>
         <div style="margin-top: 7px">
-            <span class="label_name">参数：</span>
+            <!--<span class="label_name">参数：</span>-->
             <span>{{equipment.parameter}}</span>
         </div>
         <div style="margin-top: 7px">

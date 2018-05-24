@@ -4,11 +4,10 @@
     app.controller("roomCtrl",['$scope','roomService','$state',function ($scope,roomService,$state) {
         roomService.loadRooms(function (data) {
             $scope.rooms = data;
-            console.log(data)
         });
 
         $scope.clickRoom = function (roomId) {
-            console.log(roomId)
+            /*console.log(roomId)*/
             $state.go('equipment',{roomId: roomId})
         }
     }]);
