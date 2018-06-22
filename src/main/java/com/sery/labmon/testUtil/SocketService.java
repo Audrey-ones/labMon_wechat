@@ -1,6 +1,5 @@
 package com.sery.labmon.testUtil;
 
-import com.sery.labmon.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.BufferedReader;
@@ -14,8 +13,6 @@ import java.net.Socket;
  * Created by LuDan on 2018/4/19 10:17
  */
 public class SocketService {
-    @Autowired
-    private PatientService patientService;
     //搭建服务器端
     public static void main(String[] args)throws IOException{
         //创建一个服务端Socket

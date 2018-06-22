@@ -59,8 +59,8 @@ public class EquipmentServiceImpl implements EquipmentService {
                             double equValue = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
                             /*DecimalFormat df = new DecimalFormat("#.00");
                             String equValue = df.format(equValues.get(i));*/
-                            //替换模板的字符(CH替换成通道；小写的冒号替换成大写的冒号)
-                            String tempValue = template.getTemplate().get(i).replaceAll("CH","通道").replaceAll(":","：");
+                            //替换模板的字符(CH替换成t；把CH之后的:温度去掉；小写的冒号替换成大写的冒号)
+                            String tempValue = template.getTemplate().get(i).replaceAll("CH","t").replaceAll(":温度","").replaceAll(":","：");
                             //字符串拼接，在字符串的某个位置插入另一个字符
                             StringBuffer sb = new StringBuffer(tempValue);
                             int index = tempValue.lastIndexOf("：");
@@ -69,7 +69,7 @@ public class EquipmentServiceImpl implements EquipmentService {
                             result.append(str+"；");
                         }
                     }else {
-                        result.append("参数为mull");
+                        result.append("参数为null");
                     }
                     EquipmentDataDTO equipmentDataDTO = new EquipmentDataDTO();
                     equipmentDataDTO.setEquipmentId(equipment.getEquipmentId());

@@ -22,6 +22,11 @@
                     templateUrl : 'page/equipment.html',
                     controller : "equipmentCtrl"
                 })
+                .state('alarmInfo',{
+                    url : '/alarmInfo',
+                    templateUrl : 'page/alarmInfo.html',
+                    controller : "alarmInfoCtrl"
+                })
 
         }]);
 })();

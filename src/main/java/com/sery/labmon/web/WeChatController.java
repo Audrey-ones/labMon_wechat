@@ -1,7 +1,10 @@
 package com.sery.labmon.web;
 
+import com.sery.labmon.model.AlarmInfo;
+import com.sery.labmon.service.AlarmInfoService;
 import com.sery.labmon.wechat.WechatHelper;
 import org.dom4j.DocumentException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +23,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("wechat")
 public class WeChatController {
+    @Autowired
+    private AlarmInfoService alarmInfoService;
 
     WechatHelper wechatHelper;
 
@@ -90,11 +95,25 @@ public class WeChatController {
                     break;
                 case "event":
                     if (eventType.equals("subscribe")) {
-                        msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", "感谢订阅实验室监控系统服务公众号！", msgId, agentId);
+                        msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", "感谢订阅实验室实时监控服务公众号！", msgId, agentId);
                     } else if (eventType.equals("click")) {
                         if (eventKey.equals("sys")) {
-                            String moreInfo = "操作成功，请尽快处理！";
-                            msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", moreInfo, msgId, agentId);
+                            String tip = "";
+                            List<AlarmInfo> list = alarmInfoService.getAlarmInfos();
+                            if (list.size() != 0){
+                                for (AlarmInfo alarmInfo:list){
+                                    alarmInfo.setHandled(1);
+                                    alarmInfo.setHandler(fromUserName);
+                                    alarmInfoService.hanleAlarmIo(alarmInfo);
+                                }
+                                tip = "操作成功，请尽快处理！";
+                            }else {
+                                AlarmInfo alarmInfo = alarmInfoService.getRecentlyHandler();
+                                tip = "您晚了一步哦~报警信息已经被处理啦，当前暂无待处理信息。最近一次处理报警信息的人是"+alarmInfo.getHandler()+"。";
+                            }
+
+                            /*String tip = "操作成功，请尽快处理！"+fromUserName;*/
+                            msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", tip, msgId, agentId);
                         }
                         if (eventKey.equals("more")) {
                             String moreInfo = "如您在使用过程中有任何的技术问题，请联系西瑞科技技术人员。\n" + "谢谢使用服务！";

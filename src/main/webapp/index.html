@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
     <title>实验室监控</title>
-    <link rel="shortcut icon" href="images/emoji.png"/>
+    <!--<link rel="shortcut icon" href="images/emoji.png"/>-->
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
@@ -38,7 +38,7 @@
         }
         .menu ul li{
             display: inline;
-            width: 50%;
+            width: 32%;
             padding: 20px;
             /*color: #ffffff;*/
             border-top: 1px solid #1AA094;
@@ -56,9 +56,13 @@
             <i class="fa fa-pagelines" aria-hidden="true"></i>
             首页
         </li>
-        <li ui-sref="room" style="float: right;">
+        <li ui-sref="room" style="float: left;border-right: 1px solid #1AA094">
             <i class="fa fa-bar-chart" aria-hidden="true"></i>
             房间
+        </li>
+        <li ui-sref="alarmInfo" ui-sref-opts="{reload:true}" style="float: right;width: 36%">
+            <i class="fa fa-exclamation" aria-hidden="true"></i>
+            报警信息
         </li>
     </ul>
 </div>
@@ -74,5 +78,6 @@
 <script type="text/javascript" src="js/homePageCtrl.js"></script>
 <script type="text/javascript" src="js/roomCtrl.js"></script>
 <script type="text/javascript" src="js/equipmentCtrl.js"></script>
+<script type="text/javascript" src="js/alarmInfoCtrl.js"></script>
 </body>
 </html>

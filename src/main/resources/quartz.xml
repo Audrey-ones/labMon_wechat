@@ -21,15 +21,15 @@
             <ref bean="testQuartzDetail"/>
         </property>
         <property name="startDelay">
-            <value>0</value>
-        </property>
-        <property name="repeatInterval">
             <value>6000</value>
         </property>
-        <!--设置重复的次数-->
-        <property name="repeatCount">
-            <value>1</value>
+        <property name="repeatInterval">
+            <value>60000</value>
         </property>
+        <!--设置重复的次数-->
+        <!--<property name="repeatCount">
+            <value>0</value>
+        </property>-->
     </bean>
 
     <bean id="getAccessTokenDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">

@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTO Mapper 3.0"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sery.labmon.dao.StudentMapper">
+
+    <resultMap id="studentInfo" type="com.sery.labmon.model.Student">
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <id column="name" property="name" jdbcType="VARCHAR"></id>
+        <result column="s_class" property="s_class" jdbcType="VARCHAR"></result>
+        <result column="sex" property="sex" jdbcType="VARCHAR"></result>
+        <result column="description" property="description" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <select id="getAllStudents" resultMap="studentInfo">
+        SELECT * FROM student
+    </select>
+
+    <insert id="insertStudent" parameterType="com.sery.labmon.model.Student">
+        INSERT INTO student(id,name,s_class,sex,description) VALUES (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},
+        #{s_class,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},#{description,jdbcType=VARCHAR})
+    </insert>
+
+
+</mapper>

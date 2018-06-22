@@ -1,0 +1,27 @@
+<div class="roomName" ng-click="reloadPage()">24小时内的报警记录</div>
+<div class="alarmTip">(Tip:红色为超过警戒值；蓝色为低于警戒值；绿色为掉电报警；蓝色为掉线报警)</div>
+<table class="table table-bordered alarmTable" style="display: none">
+    <thead>
+    <tr>
+        <th style="width: 10%">no</th>
+        <th style="width: 30%">报警时间</th>
+        <th style="width: 20%">设备名</th>
+        <th style="width: 20%">报警值</th>
+        <th style="width: 20%">处理人</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="alarmInfo in alarmInfoList">
+        <td>{{alarmInfo.no}}</td>
+        <td>{{alarmInfo.alarmTime}}</td>
+        <td>{{alarmInfo.equipmentName}}</td>
+        <td ng-class="setStyle(alarmInfo.type)">{{alarmInfo.value}}</td>
+        <td>{{alarmInfo.handler}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<div id="nothing" style="text-align: center;display: none;padding-top: 8%">
+    <i class="fa fa-smile-o" style="line-height:15rem; font-size:10rem; color: #393D50;"></i>
+    <p style="font-size: 14px; font-weight: 300; color: #999;">恭喜你，目前还没有报警信息哦~</p>
+</div>

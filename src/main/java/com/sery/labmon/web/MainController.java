@@ -3,6 +3,7 @@ package com.sery.labmon.web;
 import com.sery.labmon.model.EquipmentDataDTO;
 import com.sery.labmon.model.Equipments;
 import com.sery.labmon.model.Rooms;
+import com.sery.labmon.service.AlarmInfoService;
 import com.sery.labmon.service.EquipmentDataService;
 import com.sery.labmon.service.EquipmentService;
 import com.sery.labmon.service.RoomsService;
@@ -24,6 +25,9 @@ public class MainController {
 
     @Autowired
     private EquipmentDataService equipmentDataService;
+
+    @Autowired
+    private AlarmInfoService alarmInfoService;
 
     @RequestMapping(value = "rooms",method = RequestMethod.GET)
     public @ResponseBody
@@ -48,6 +52,12 @@ public class MainController {
     public @ResponseBody Rooms getRoomByRoomId(@PathVariable("roomId") int roomId){
         Rooms room = roomsService.getRoomByRoomId(roomId);
         return room;
+    }
+
+    @RequestMapping(value = "alarmInfos",method = RequestMethod.GET)
+    public @ResponseBody List getAllAlarmInfos(){
+        List list = alarmInfoService.getAllAlarmInfoList();
+        return list;
     }
 
     /*@RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)

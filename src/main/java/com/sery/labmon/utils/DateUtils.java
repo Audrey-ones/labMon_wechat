@@ -15,6 +15,9 @@ public class DateUtils {
         System.out.println(181508093500L%1000000/10000);
         System.out.println(181508093500L%10000/100);
         System.out.println(181508093545L / 10000000000L);
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置日期格式
+        String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
+        System.out.println(date.substring(2));
     }
 
     //180508093500
@@ -32,5 +35,20 @@ public class DateUtils {
                 +String.valueOf(hour)+":"+String.valueOf(minute)+":"+String.valueOf(second);*/
         return dateString;
     }
+
+    public static String timeStampToString(long timeStamp){
+        int year = (int) (timeStamp / 10000000000L)+100;
+        int month = (int) (timeStamp % 10000000000L / 100000000)-1;
+        int day = (int) (timeStamp % 100000000 / 1000000);
+        int hour = (int) (timeStamp % 1000000 / 10000);
+        int minute = (int) (timeStamp % 10000 / 100);
+        int second = (int) (timeStamp % 100);
+        Date date = new Date(year,month,day,hour,minute,second);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateString = formatter.format(date);
+        return dateString;
+    }
+
+
 
 }
