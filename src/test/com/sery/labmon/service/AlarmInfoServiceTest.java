@@ -38,7 +38,7 @@ public class AlarmInfoServiceTest {
         alarmInfo.setHandled(0);
         alarmInfo.setHandler("陆丹");
         alarmInfo.setType(5);
-        alarmInfoService.hanleAlarmIo(alarmInfo);
+        alarmInfoService.handleAlarmIo(alarmInfo);
     }
 
     @Test
@@ -46,15 +46,12 @@ public class AlarmInfoServiceTest {
         List<AlarmInfo> alarmInfoList = alarmInfoMapper.getAlarmInfoByHandled();
         System.out.println(alarmInfoList);
         System.out.println(alarmInfoList.size());
-        /*List<AlarmInfo> alarmInfoList = alarmInfoService.getAlarmInfos();*/
-        /*for (AlarmInfo alarmInfo:alarmInfoList){
-            alarmInfo.setHandled(0);
-            alarmInfo.setHandler("无");
-            alarmInfoService.hanleAlarmIo(alarmInfo);
-        }*/
         List<AlarmInfo> list = alarmInfoService.getAlarmInfos();
-        for (AlarmInfo alarmInfo:list){
+        for (AlarmInfo alarmInfo:alarmInfoList){
             System.out.println(alarmInfo);
+            alarmInfo.setHandled(0);
+            alarmInfo.setHandler("");
+            alarmInfoService.handleAlarmIo(alarmInfo);
         }
         System.out.println(list);
         System.out.println(list.size());

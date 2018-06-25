@@ -10,26 +10,26 @@ import java.util.List;
 public interface AlarmInfoService {
     /**
      * 获取所有未处理的报警信息
-     * @return
+     * @return list集合
      */
     List<AlarmInfo> getAlarmInfos();
 
     /**
      * 获取24小时内的所有报警记录
-     * @return
+     * @return list集合
      */
     List getAllAlarmInfoList();
 
     /**
      * 处理报警信息
      * @param alarmInfo
-     * @return
+     * @return int
      */
-    int hanleAlarmIo(AlarmInfo alarmInfo);
+    int handleAlarmIo(AlarmInfo alarmInfo);
 
     /**
      * 获取最新的处理人
-     * @return
+     * @return alarmInfo实体
      */
     AlarmInfo getRecentlyHandler();
 }

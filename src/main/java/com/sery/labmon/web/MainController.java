@@ -29,6 +29,10 @@ public class MainController {
     @Autowired
     private AlarmInfoService alarmInfoService;
 
+    /**
+     * 获取所有的房间信息
+     * @return
+     */
     @RequestMapping(value = "rooms",method = RequestMethod.GET)
     public @ResponseBody
     List<Rooms> getAllRooms(){
@@ -36,24 +40,42 @@ public class MainController {
         return roomsList;
     }
 
+    /**
+     * 根据房间ID获取房间内的设备信息
+     * @param roomId
+     * @return
+     */
     @RequestMapping(value = "equipments/{roomId}",method = RequestMethod.GET)
     public @ResponseBody List<EquipmentDataDTO> getEquipmentByRoomId(@PathVariable("roomId") int roomId){
         List<EquipmentDataDTO> equipmentsList = equipmentService.getEquipmentByRoomId(roomId);
         return equipmentsList;
     }
 
+    /**
+     * 获取所有房间的所有设备的数量
+     * @return
+     */
     @RequestMapping(value = "rooms/equipments",method = RequestMethod.GET)
     public @ResponseBody List getEquipmentsByRooms(){
         List list = roomsService.getEquipmentsByRooms();
         return list;
     }
 
+    /**
+     * 根据房间ID获取房间信息
+     * @param roomId
+     * @return
+     */
     @RequestMapping(value = "rooms/{roomId}",method = RequestMethod.GET)
     public @ResponseBody Rooms getRoomByRoomId(@PathVariable("roomId") int roomId){
         Rooms room = roomsService.getRoomByRoomId(roomId);
         return room;
     }
 
+    /**
+     * 获取24小时内的报警信息
+     * @return
+     */
     @RequestMapping(value = "alarmInfos",method = RequestMethod.GET)
     public @ResponseBody List getAllAlarmInfos(){
         List list = alarmInfoService.getAllAlarmInfoList();

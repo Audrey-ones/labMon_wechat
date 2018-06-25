@@ -8,12 +8,12 @@ import java.util.List;
 public class JsonEquipmentData {
     private Integer I;
     private List<Double> S;
-    private Boolean O;
-    private Boolean D;
-    private Boolean R;
-    private Boolean V;
+    private Integer O;
+    private Integer D;
+    private Integer R;
+    private Integer V;
 
-    public JsonEquipmentData(Integer i, List<Double> s, Boolean o, Boolean d, Boolean r, Boolean v) {
+    public JsonEquipmentData(Integer i, List<Double> s, Integer o, Integer d, Integer r, Integer v) {
         I = i;
         S = s;
         O = o;
@@ -41,35 +41,35 @@ public class JsonEquipmentData {
         S = s;
     }
 
-    public Boolean getO() {
+    public Integer getO() {
         return O;
     }
 
-    public void setO(Boolean o) {
+    public void setO(Integer o) {
         O = o;
     }
 
-    public Boolean getD() {
+    public Integer getD() {
         return D;
     }
 
-    public void setD(Boolean d) {
+    public void setD(Integer d) {
         D = d;
     }
 
-    public Boolean getR() {
+    public Integer getR() {
         return R;
     }
 
-    public void setR(Boolean r) {
+    public void setR(Integer r) {
         R = r;
     }
 
-    public Boolean getV() {
+    public Integer getV() {
         return V;
     }
 
-    public void setV(Boolean v) {
+    public void setV(Integer v) {
         V = v;
     }
 

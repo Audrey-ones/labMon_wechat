@@ -41,7 +41,6 @@ public class EquipmentServiceImpl implements EquipmentService {
         //获取采集到最新一条记录的json数组
         JsonData jsonData = equipmentDataService.getTheLastEquipmentData();
         List<EquipmentDataDTO> dataDTOList = new ArrayList<EquipmentDataDTO>();
-
         for (Equipments equipment : equipmentsList){
             for (JsonEquipmentData jsonEquipmentData : jsonData.getData()){
                 //遍历房间内所有设备和json数组，是否匹配
@@ -60,7 +59,8 @@ public class EquipmentServiceImpl implements EquipmentService {
                             /*DecimalFormat df = new DecimalFormat("#.00");
                             String equValue = df.format(equValues.get(i));*/
                             //替换模板的字符(CH替换成t；把CH之后的:温度去掉；小写的冒号替换成大写的冒号)
-                            String tempValue = template.getTemplate().get(i).replaceAll("CH","t").replaceAll(":温度","").replaceAll(":","：");
+                            String tempValue = template.getTemplate().get(i).replaceAll("CH","t").replaceAll(":温度","")
+                                    .replaceAll(":","：");
                             //字符串拼接，在字符串的某个位置插入另一个字符
                             StringBuffer sb = new StringBuffer(tempValue);
                             int index = tempValue.lastIndexOf("：");
@@ -82,7 +82,6 @@ public class EquipmentServiceImpl implements EquipmentService {
             }
         }
 
-        /*System.out.println(dataDTOList);*/
         return dataDTOList;
     }
 }

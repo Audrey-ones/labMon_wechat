@@ -12,7 +12,7 @@ import java.util.Map;
 public interface EquipmentDataService {
     /**
      * 获取所有的采集数据
-     * @return
+     * @return list集合
      */
     List<EquipmentDatas> getAllEquipmentDatas();
 

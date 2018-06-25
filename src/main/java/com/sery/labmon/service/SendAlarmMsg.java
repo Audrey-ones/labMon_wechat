@@ -16,8 +16,8 @@ import javax.servlet.ServletContext;
 import java.util.Date;
 import java.util.List;
 
-@Component("testQuartz")
-public class WechatTest {
+@Component("sendAlarmMsg")
+public class SendAlarmMsg {
 
     /*public String run(){
         Date date = new Date();

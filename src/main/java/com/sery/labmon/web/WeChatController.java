@@ -36,6 +36,11 @@ public class WeChatController {
         wechatHelper.setsEncodingAESKey("MxjP8PGDbfOp4kSdIxTzCNnp3aWcr1lctPcSM5qCnNY");
     }
 
+    /**
+     * 接收微信服务器发送请求时传递过来的4个参数
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String joinUp(HttpServletRequest request) {
         String sVerifyMsgSig = request.getParameter("msg_signature");
@@ -104,7 +109,7 @@ public class WeChatController {
                                 for (AlarmInfo alarmInfo:list){
                                     alarmInfo.setHandled(1);
                                     alarmInfo.setHandler(fromUserName);
-                                    alarmInfoService.hanleAlarmIo(alarmInfo);
+                                    alarmInfoService.handleAlarmIo(alarmInfo);
                                 }
                                 tip = "操作成功，请尽快处理！";
                             }else {
@@ -138,8 +143,12 @@ public class WeChatController {
         }
     }
 
-
-    @RequestMapping(value = "wechat/set", method = RequestMethod.GET)
+    /**
+     * 测试接口是否可用
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/set", method = RequestMethod.GET)
     public String getUser(HttpServletRequest request) {
         String name = "123456789GOODBYE";
         return name;

@@ -82,7 +82,7 @@ public class AlarmInfoServiceImpl implements AlarmInfoService{
     }
 
     @Override
-    public int hanleAlarmIo(AlarmInfo alarmInfo) {
+    public int handleAlarmIo(AlarmInfo alarmInfo) {
         int result = alarmInfoMapper.updateAlarmInfo(alarmInfo);
         return result;
     }

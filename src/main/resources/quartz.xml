@@ -10,18 +10,18 @@
     <context:component-scan base-package="com.sery.labmon.service"/>
     <context:component-scan base-package="com.sery.labmon.wechat"/>
 
-    <bean id="testQuartzDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-        <property name="targetObject" ref="testQuartz"/>
+    <bean id="sendAlarmMsgDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="sendAlarmMsg"/>
         <property name="targetMethod" value="run"/>
         <property name="concurrent" value="false"/>
     </bean>
 
-    <bean id="testQuartzTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+    <bean id="sendAlarmMsgTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
         <property name="jobDetail">
-            <ref bean="testQuartzDetail"/>
+            <ref bean="sendAlarmMsgDetail"/>
         </property>
         <property name="startDelay">
-            <value>6000</value>
+            <value>2000</value>
         </property>
         <property name="repeatInterval">
             <value>60000</value>
@@ -58,7 +58,7 @@
         <property name="triggers">
             <list>
                 <ref local="getAccessTokenTrigger"/>
-                <ref local="testQuartzTrigger"/>
+                <ref local="sendAlarmMsgTrigger"/>
             </list>
         </property>
     </bean>
