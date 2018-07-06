@@ -46,19 +46,19 @@ public class SendAlarmMsg {
                    String equipmentName = roomName+"-"+equipment.getName();
                    String valueMsg = "";
                    if (alarmInfo.getType() == 1){
-                       valueMsg = "超过警戒值,值为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",";
+                       valueMsg = "超过警戒值,当前值为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",";
                    }
                    if (alarmInfo.getType() == 2){
-                       valueMsg = "低于警戒值,值为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",";
+                       valueMsg = "低于警戒值,当前值为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",";
                    }
                    if (alarmInfo.getType() == 3){
-                       valueMsg = "出现掉电异常,值为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",";
+                       valueMsg = "出现掉电异常,当前值为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",";
                    }
                    if (alarmInfo.getType() == 4){
                        valueMsg = "出现掉线异常,";
                    }
                    String msg;
-                   msg = "您好，实验室"+equipmentName+"中的"+alarmInfo.getPhysicalQuantity()+"在"+date+valueMsg+"请及时处理！";
+                   msg = "您好，实验室"+equipmentName+alarmInfo.getPhysicalQuantity()+"在"+date+valueMsg+"请及时处理！";
                    StringBuffer sb = new StringBuffer();
                    sb.append("{ 'totag': '1','msgtype': 'text', 'agentid': 1000003, 'text': {'content': '" + msg + "'}}");
                    JSONObject jsonParam = JSONObject.fromObject(sb.toString());

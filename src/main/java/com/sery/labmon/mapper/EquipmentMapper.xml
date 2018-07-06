@@ -25,4 +25,13 @@
         EquipmentID = #{equipmentId,jdbcType=INTEGER}
     </select>
 
+    <select id="getEquipmentByIdAndRoomId" resultMap="equipmentInfo" parameterType="java.util.Map">
+        SELECT *
+        FROM Equipments
+        WHERE
+        EquipmentID = #{equipmentId,jdbcType=INTEGER}
+        AND
+        RoomID = #{roomId,jdbcType=INTEGER}
+    </select>
+
 </mapper>

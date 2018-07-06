@@ -32,4 +32,11 @@ public interface AlarmInfoService {
      * @return alarmInfo实体
      */
     AlarmInfo getRecentlyHandler();
+
+    /**
+     * 根据处理人查找24小时内处理的报警信息
+     * @param handler
+     * @return
+     */
+    String getAlarmInfoByHandler(String handler);
 }

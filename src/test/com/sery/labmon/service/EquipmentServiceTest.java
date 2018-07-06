@@ -2,6 +2,8 @@ package com.sery.labmon.service;
 
 import com.google.gson.Gson;
 import com.sery.labmon.dao.DataTemplateMapper;
+import com.sery.labmon.dao.EquipmentMapper;
+import com.sery.labmon.dao.RoomMapper;
 import com.sery.labmon.model.*;
 import com.sery.labmon.utils.DateUtils;
 import org.junit.Test;
@@ -10,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -28,6 +28,12 @@ public class EquipmentServiceTest {
 
     @Autowired
     private EquipmentDataService equipmentDataService;
+
+    @Autowired
+    private RoomMapper roomMapper;
+
+    @Autowired
+    private EquipmentMapper equipmentMapper;
 
     @Autowired
     private DataTemplateMapper dataTemplateMapper;
@@ -86,5 +92,54 @@ public class EquipmentServiceTest {
         if (jsonData.getData().get(j).getV() == true){
             System.out.println("连通，但无效");
         }*/
+    }
+
+    @Test
+    public void getEquipmentByRoomId1() {
+       /* List<Rooms> roomsList = roomMapper.getAllRooms();
+        for (Rooms rooms : roomsList){
+            List<EquipmentDataDTO> list = equipmentService.getEquipmentByRoomId(rooms.getRoomId());
+            System.out.println(list);
+        }*/
+        /*JsonData jsonData=equipmentDataService.getTheLastEquipmentData();
+        System.out.println(jsonData);*/
+        /*List<EquipmentDataDTO> list = equipmentService.getEquipmentByRoomId(1);
+        System.out.println(list);*/
+        /*Map map = new HashMap();
+        map.put("equipmentId",0);
+        map.put("roomId",1);
+        Equipments equipments = equipmentMapper.getEquipmentByIdAndRoomId(map);
+        System.out.println(equipments);*/
+        List<Equipments> equipmentsList = equipmentMapper.getEquipmentByRoomId(1);
+        JsonData jsonData = equipmentDataService.getTheLastEquipmentData();
+        //当采集的json数据和房间的设备不一致时
+        /*for (int i=0; i<equipmentsList.size();i++){
+            for (int j=0; j<jsonData.getData().size(); j++){
+                if (equipmentsList.get(i).getEquipmentId() == jsonData.getData().get(j).getI()){
+                    equipmentsList.remove(equipmentsList.get(i));
+                }
+                System.out.println("equipmentsList："+equipmentsList.get(i).getEquipmentId()+"+++++++++++jsonData："+jsonData.getData().get(j).getI());
+            }
+           *//* System.out.println(equipmentsList);*//*
+        }
+
+        for (Equipments equipments : equipmentsList){
+            System.out.println(equipments);
+        }*/
+
+        /*long startTime = System.currentTimeMillis();
+        for (int i=0;i<10000;i++){
+            List<EquipmentDataDTO> equipmentDataDTO = equipmentService.getEquipmentByRoomId(1);
+
+        }*/
+        //List<EquipmentDataDTO> equipmentDataDTO = equipmentService.getEquipmentByRoomId(1);
+        /*System.out.println(equipmentDataDTO);*/
+        /*long endTime = System.currentTimeMillis();
+        float excTime=(float)(endTime-startTime)/1000;
+        System.out.println("执行时间："+excTime+"s");*/
+        List<EquipmentDataDTO> equipmentDataDTO = equipmentService.getEquipmentByRoomId(1);
+        /*System.out.println(equipmentDataDTO);*/
+
+
     }
 }

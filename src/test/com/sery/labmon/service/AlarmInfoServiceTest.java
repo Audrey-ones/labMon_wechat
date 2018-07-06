@@ -57,4 +57,10 @@ public class AlarmInfoServiceTest {
         System.out.println(list.size());
 
     }
+
+    @Test
+    public void getAlarmInfoByHandler() {
+        String alarmInfoList = alarmInfoService.getAlarmInfoByHandler("LuDan");
+        System.out.println(alarmInfoList);
+    }
 }

@@ -17,6 +17,13 @@
         <result column="Handler" property="handler" jdbcType="VARCHAR"></result>
     </resultMap>
 
+    <select id="getAlarmInfoByHandler" resultMap="alarmInfo">
+        SELECT * FROM AlarmInfo
+        WHERE
+        Handled = 1 AND Handler = #{handler,jdbcType=VARCHAR}
+        ORDER BY TimeStamp DESC
+    </select>
+
     <select id="getAllAlarmInfo" resultMap="alarmInfo">
         SELECT * FROM AlarmInfo
         WHERE

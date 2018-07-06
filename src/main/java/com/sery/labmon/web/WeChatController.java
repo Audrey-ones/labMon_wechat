@@ -120,6 +120,11 @@ public class WeChatController {
                             /*String tip = "操作成功，请尽快处理！"+fromUserName;*/
                             msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", tip, msgId, agentId);
                         }
+                        if (eventKey.equals("ck")) {
+                            String tip = alarmInfoService.getAlarmInfoByHandler(fromUserName);
+                            /*String tip = "操作成功，请尽快处理！"+fromUserName;*/
+                            msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", tip, msgId, agentId);
+                        }
                         if (eventKey.equals("more")) {
                             String moreInfo = "如您在使用过程中有任何的技术问题，请联系西瑞科技技术人员。\n" + "谢谢使用服务！";
                             msg = wechatHelper.getCorpXmlMsg(fromUserName, toUserName, returntime.toString(), "text", moreInfo, msgId, agentId);

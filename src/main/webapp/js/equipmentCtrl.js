@@ -12,6 +12,7 @@
             }else {
                 $("#nothing").css("display","none");
             }
+            console.log(data);
             $scope.equipments_ = data;
         })
 

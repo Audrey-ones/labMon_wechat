@@ -92,4 +92,50 @@ public class AlarmInfoServiceImpl implements AlarmInfoService{
         AlarmInfo alarmInfo = alarmInfoMapper.getRecentlyHandler();
         return alarmInfo;
     }
+
+    @Override
+    public String getAlarmInfoByHandler(String handler) {
+        List<AlarmInfo> alarmInfoList = alarmInfoMapper.getAlarmInfoByHandler(handler);
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");//设置日期格式
+        long nowTime = Long.parseLong(df.format(new Date()).substring(2));// new Date()为获取当前系统时间，也可使用当前时间戳
+        //取截止此时此刻为止24小时内的数据
+        List<AlarmInfo> list = new ArrayList<>();
+        int i = 1;
+        StringBuffer sb = new StringBuffer();
+        sb.append("您在24小时内处理的信息有：\n");
+        for (AlarmInfo alarmInfo:alarmInfoList){
+            if (nowTime-alarmInfo.getTimeStamp()<=1000000){
+                list.add(alarmInfo);
+                String date = DateUtils.TimeStampToDate(alarmInfo.getTimeStamp());
+                Equipments equipment = equipmentMapper.getEquipmentById(alarmInfo.getEquipmentID());
+                String roomName = roomMapper.getRoomByRoomId(equipment.getRoomId()).getName();
+                String equipmentName = roomName+"-"+equipment.getName();
+                String valueMsg = "";
+                if (alarmInfo.getType() == 1){
+                    valueMsg = "为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",超过警戒值；";
+                }
+                if (alarmInfo.getType() == 2){
+                    valueMsg = "为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",低于警戒值；";
+                }
+                if (alarmInfo.getType() == 3){
+                    valueMsg = "为"+alarmInfo.getCurrentVal()+alarmInfo.getUnit()+",出现掉电异常；";
+                }
+                if (alarmInfo.getType() == 4){
+                    valueMsg = "出现掉线异常,";
+                }
+                String msg = i+"."+date+equipmentName+"的"+alarmInfo.getPhysicalQuantity()+valueMsg+"\n";
+                sb.append(msg);
+                i++;
+            }
+        }
+
+        String msg = "";
+        if (list.size() != 0){
+            msg = sb.toString();
+        }else {
+            msg = "您在24小时内没有处理过报警哦~";
+        }
+
+        return msg;
+    }
 }

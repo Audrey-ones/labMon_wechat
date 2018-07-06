@@ -38,4 +38,11 @@ public interface AlarmInfoMapper {
      * @return
      */
     AlarmInfo getRecentlyHandler();
+
+    /**
+     * 根据处理人查找24小时内处理的报警信息
+     * @param handler
+     * @return
+     */
+    List<AlarmInfo> getAlarmInfoByHandler(String handler);
 }
